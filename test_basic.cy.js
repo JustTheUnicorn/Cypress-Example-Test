@@ -1,7 +1,8 @@
 describe('Basic test on cypress.com', () => {
   it('passes', () => {
 
-    cy.visit('https://example.cypress.io');
+    cy.visit('https://example.cypress.io')
+    cy.viewport(1024, 768)
     cy.contains('get')
     .click()
     .wait(1000);
@@ -24,25 +25,24 @@ describe('Basic test on cypress.com', () => {
     cy.get('[data-cy="submit"]')
     .click();
 
-    //Nova URL (Site de)
+    //Nova URL 
 
     cy.get(':nth-child(7) > .col-xs-7 > p > a')
     .click();
    
-    cy.get('.DocSearch-Button-Placeholder')
-    .click()
-    .wait(1000)
-    .type('g');
+
+    cy.get('.osano-cm-accept').wait(1000)
+    .click();
+
+    cy.get('.DocSearch').click();
 
     cy.get('#docsearch-input')
     .type('Started');
 
-    //cy.get('.DocSearch-Dropdown')
-   // .contains('Guides').should('be.visible');
+    cy.get('.DocSearch-Dropdown')
+    .contains('Guides').should('be.visible');
     
-    cy.get('.DocSearch-Dropdown')             
-    .should('contain', 'Guides')    
-    .and('contain', 'Examples');
+    cy.get('#docsearch-item-0 > a > .DocSearch-Hit-Container').click();
 
   })
 })
