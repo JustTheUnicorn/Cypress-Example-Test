@@ -25,7 +25,7 @@ describe('Basic test on cypress.com', () => {
     cy.get('[data-cy="submit"]')
     .click();
 
-    //Nova URL 
+    //New URL 
 
     cy.get(':nth-child(7) > .col-xs-7 > p > a')
     .click();
